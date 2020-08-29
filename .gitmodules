@@ -1,0 +1,3 @@
+[submodule "lib-crypto-lamport"]
+	path = lib-crypto-lamport
+	url = git@github.com:vTCP-Foundation/lib-crypto-lamport.git
