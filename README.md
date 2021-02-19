@@ -1,8 +1,8 @@
 # Lamport Scheme Crypto Back-end
-Implements tiny set of operations with Lamport Signatures. <br/>
-At the moment uses file-based interface for the communication (would be improved in next releases). <br/>
+Fast unix-style back-end for Lamport Signatures based crypto. <br/>
 
 
+## How to use
 ### Generate keys pair
 ```bash
 > lamportc generate key
@@ -15,7 +15,7 @@ key.pkey  key.pubkey  lamportc
 * `key` — the name for the keys pair (could be any, except empty).
 
 Generated keys (public and private) would be written as `<key>.pkey` for private key 
-and `<key>.pubkey` for public key into the same directory from where `lamportc` is launched.
+and `<key>.pubkey` for public key into the same directory from where `lamportc` is called.
 
 <br/>
 
@@ -48,3 +48,30 @@ Returns `0 (success)` if signature corresponds to the pubkey, otherwise - return
 Must be accessible from the same directory from which the `lamportc` is launched. <br/>
 * `signature.sig` — the name of the file that contains signature to be checked. <br/>
 * `key.pkey` — the name of the file that contains public key. <br/>
+
+
+## How to build
+
+* Requires cmake.
+* Requires boost.
+* Requires submodule [lib-crypto-lamport](https://github.com/vTCP-Foundation/lib-crypto-lamport) to be fetched.
+
+
+```
+# For the first time cloned repo:
+
+git submodule update --recursive --init
+```
+
+To build execution file:
+
+```bash
+cmake -B ./build
+cd build
+make
+```
+
+
+## Golang wrapper
+
+The golang wrapper for this back-end is available [here](https://github.com/vTCP-Foundation/go-lamport-crypto).
